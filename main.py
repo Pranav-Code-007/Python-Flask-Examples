@@ -57,8 +57,13 @@ def signup():
 @app.route('/account')
 def citizen():
     if request.cookies.get('login') == 'true':
-        pass
-    return render_template('citizen_account.html', page_name="account")
+        return render_template('citizen_account.html', page_name="account")
+    return redirect(url_for('error'))
+
+
+@app.route('/error')
+def error():
+    return render_template('error.html')
 
 
 if __name__ == '__main__':
